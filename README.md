@@ -5,8 +5,8 @@
 > **Note** This app has been tested on node 0.12.x
 
 ```
-git clone https://github.com/gpbl/isomorphic500.git
-cd isomorphic500
+git clone git@github.com:crmaxx/netscanner-ui.git
+cd netscanner-ui
 npm install
 ```
 
