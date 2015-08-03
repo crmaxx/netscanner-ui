@@ -19,6 +19,9 @@ var packageJson = require('./package.json');
 // we'll use this as the default for `isDev`
 var isDev = process.argv[1].indexOf('webpack-dev-server') !== -1;
 
+var hostName = 'localhost';
+var port = 3000;
+
 var useHash = false;
 var clearBeforeBuild = true;
 var config;
@@ -78,14 +81,14 @@ config = {
 
 if (isDev) {
   config.devServer = {
-    port: 3000,
+    port: port,
     historyApiFallback: true,
-    host: 'localhost',
+    host: hostName,
     hot: true
   };
 
   config.entry.unshift(
-    'webpack-dev-server/client?http://localhost:3000',
+    'webpack-dev-server/client?http://' + hostName + ':' + port,
     'webpack/hot/only-dev-server'
   );
 
@@ -93,8 +96,10 @@ if (isDev) {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.SourceMapDevToolPlugin(
-      '[file].map', null,
-      '[absolute-resource-path]', '[absolute-resource-path]'
+      '[file].map',
+      null,
+      '[absolute-resource-path]',
+      '[absolute-resource-path]'
     )
   );
 
