@@ -1,3 +1,5 @@
 node_modules
 public
 *.bak
+.DS_Store
+npm-debug.log

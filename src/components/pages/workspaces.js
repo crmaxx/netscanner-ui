@@ -1,24 +1,24 @@
-import React from "react";
-// import Router from "react-router";
-import { Mixins, Styles } from "material-ui";
-// import WorkspacesFeature from "./components/workspaces-feature";
-import WorkspacesTable from "./components/workspaces-table";
-import FullWidthSection from "../full-width-section";
+import React from 'react';
+// import Router from 'react-router';
+import { Mixins, Styles } from 'material-ui';
+// import WorkspacesFeature from './components/workspaces-feature';
+import WorkspacesTable from './components/workspaces-table';
+// import FullWidthSection from '../full-width-section';
 
-let { StylePropable, StyleResizable } = Mixins;
-let { Colors, Spacing, Typography } = Styles;
+const { StylePropable, StyleResizable } = Mixins;
+const { Colors, Spacing, Typography } = Styles;
 // let ThemeManager = new Styles.ThemeManager().getCurrentTheme();
 
-let HomePage = React.createClass({
-  mixins: [StylePropable, StyleResizable],
-
+const HomePage = React.createClass({
   contextTypes: {
-    router: React.PropTypes.func
+    router: React.PropTypes.func,
   },
 
+  mixins: [StylePropable, StyleResizable],
+
   render() {
-    let style = {
-      paddingTop: Spacing.desktopKeylineIncrement
+    const style = {
+      paddingTop: Spacing.desktopKeylineIncrement,
     };
 
     return (
@@ -30,9 +30,9 @@ let HomePage = React.createClass({
   },
 
   _getWorkspacesPurpose() {
-    let styles = {
+    const styles = {
       root: {
-        backgroundColor: Colors.grey200
+        backgroundColor: Colors.grey200,
       },
       content: {
         maxWidth: '700px',
@@ -44,11 +44,11 @@ let HomePage = React.createClass({
         paddingTop: '19px',
         marginBottom: '13px',
         letterSpacing: '0',
-        color: Typography.textDarkBlack
-      }
+        color: Typography.textDarkBlack,
+      },
     };
 
-    let rowData = [
+    const rowData = [
       {
         id: {content: '1'},
         name: {content: 'default'},
@@ -56,7 +56,7 @@ let HomePage = React.createClass({
         sessions: {content: '0'},
         owner: {content: 'system'},
         updated: {content: 'about 1 month ago'},
-        description: {content: ''}
+        description: {content: ''},
       },
       {
         id: {content: '2'},
@@ -65,14 +65,14 @@ let HomePage = React.createClass({
         sessions: {content: '2'},
         owner: {content: 'tester1'},
         updated: {content: 'about 1 month ago'},
-        description: {content: ''}
-      }
+        description: {content: ''},
+      },
     ];
 
     return (
       <WorkspacesTable rowData={rowData} />
     );
-  }
+  },
 });
 
 module.exports = HomePage;

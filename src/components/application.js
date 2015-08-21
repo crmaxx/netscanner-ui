@@ -1,12 +1,12 @@
-import React from "react";
-import Router from "react-router";
-import AppLeftNav from "./app-left-nav";
-import FullWidthSection from "./full-width-section";
-import { AppBar, AppCanvas, IconButton, Menu, Styles } from "material-ui";
+import React from 'react';
+import Router from 'react-router';
+import AppLeftNav from './app-left-nav';
+import FullWidthSection from './full-width-section';
+import { AppBar, AppCanvas, IconButton, Styles } from 'material-ui';
 
-let RouteHandler = Router.RouteHandler;
-let { Colors, Typography } = Styles;
-let ThemeManager = new Styles.ThemeManager();
+const RouteHandler = Router.RouteHandler;
+const { Colors } = Styles;
+const ThemeManager = new Styles.ThemeManager();
 
 class Master extends React.Component {
 
@@ -17,40 +17,42 @@ class Master extends React.Component {
 
   getChildContext() {
     return {
-      muiTheme: ThemeManager.getCurrentTheme()
-    }
+      muiTheme: ThemeManager.getCurrentTheme(),
+    };
   }
 
   getStyles() {
-    let darkWhite = Colors.darkWhite;
+    const darkWhite = Colors.darkWhite;
     return {
       footer: {
         backgroundColor: Colors.grey900,
-        textAlign: 'center'
+        textAlign: 'center',
+        maxHeight: '100px',
+        height: '100px',
       },
       a: {
-        color: darkWhite
+        color: darkWhite,
       },
       p: {
         margin: '0 auto',
         padding: '0',
         color: Colors.lightWhite,
-        maxWidth: '335px'
+        maxWidth: '370px',
       },
       iconButton: {
-        color: darkWhite
-      }
+        color: darkWhite,
+      },
     };
   }
 
   render() {
-    let styles = this.getStyles();
-    let title =
+    const styles = this.getStyles();
+    const title =
       this.context.router.isActive('hosts') ? 'Hosts' :
       this.context.router.isActive('jobs') ? 'Jobs' : '';
 
     // Написать свой компонент для вывод количества активных сессий
-    let githubButton = (
+    const githubButton = (
       <IconButton
         iconStyle={styles.iconButton}
         iconClassName="muidocs-icon-custom-github"
@@ -73,8 +75,7 @@ class Master extends React.Component {
 
         <FullWidthSection style={styles.footer}>
           <p style={styles.p}>
-            Hand crafted with love by the engineers at <a style={styles.a} href="http://call-em-all.com">Call-Em-All</a> and our
-            awesome <a style={styles.a} href="https://github.com/callemall/material-ui/graphs/contributors">contributors</a>.
+            Hand crafted with love by the engineers at <a style={styles.a} href="http://call-em-all.com">Call-Em-All</a>.
           </p>
           {githubButton}
         </FullWidthSection>
@@ -89,11 +90,11 @@ class Master extends React.Component {
 }
 
 Master.contextTypes = {
-  router: React.PropTypes.func
+  router: React.PropTypes.func,
 };
 
 Master.childContextTypes = {
-  muiTheme: React.PropTypes.object
+  muiTheme: React.PropTypes.object,
 };
 
 module.exports = Master;

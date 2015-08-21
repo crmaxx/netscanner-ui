@@ -1,32 +1,32 @@
-import React from "react";
-import Router from "react-router";
-import  { Paper, Mixins, Styles } from "material-ui";
+import React from 'react';
+import Router from 'react-router';
+import  { Paper, Mixins, Styles } from 'material-ui';
 
 const Link = Router.Link;
 const { StylePropable, StyleResizable } = Mixins;
 const { Colors, Spacing, Transitions, Typography } = Styles;
 
-let WorkspacesFeature = React.createClass({
-  mixins: [StylePropable, StyleResizable],
-
+const WorkspacesFeature = React.createClass({
   propTypes: {
     heading: React.PropTypes.string,
     route: React.PropTypes.string,
     img: React.PropTypes.string,
     firstChild: React.PropTypes.bool,
-    lastChild: React.PropTypes.bool
+    lastChild: React.PropTypes.bool,
   },
+
+  mixins: [StylePropable, StyleResizable],
 
   getDefaultProps() {
     return {
       firstChild: false,
-      lastChild: false
+      lastChild: false,
     };
   },
 
   getInitialState() {
     return {
-      zDepth: 0
+      zDepth: 0,
     };
   },
 
@@ -37,17 +37,17 @@ let WorkspacesFeature = React.createClass({
       root: {
         transition: Transitions.easeOut(),
         maxWidth: '300px',
-        margin: '0 auto ' + desktopGutter + ' auto'
+        margin: '0 auto ' + desktopGutter + ' auto',
       },
       rootWhenMedium: {
         float: 'left',
         width: '33%',
         marginRight: '4px',
-        marginBottom: '0px'
+        marginBottom: '0px',
       },
       image: {
-        //Not sure why this is needed but it fixes a display
-        //issue in chrome
+        // Not sure why this is needed but it fixes a display
+        // issue in chrome
         marginBottom: -6,
       },
       heading: {
@@ -61,18 +61,18 @@ let WorkspacesFeature = React.createClass({
         textAlign: 'center',
         margin: '0px',
         padding: '0px',
-        lineHeight: desktopKeylineIncrement + 'px'
+        lineHeight: desktopKeylineIncrement + 'px',
       },
       rootWhenLastChild: {
-        marginBottom: '0px'
+        marginBottom: '0px',
       },
       rootWhenMediumAndLastChild: {
         marginRight: '0px',
-        marginBottom: '0px'
+        marginBottom: '0px',
       },
       rootWhenMediumAndFirstChild: {
-        marginLeft: '0px'
-      }
+        marginLeft: '0px',
+      },
     };
 
     if (this.isDeviceSize(StyleResizable.statics.Sizes.MEDIUM) ||
@@ -109,15 +109,15 @@ let WorkspacesFeature = React.createClass({
 
   _onMouseEnter() {
     this.setState({
-      zDepth: 4
+      zDepth: 4,
     });
   },
 
   _onMouseLeave() {
     this.setState({
-      zDepth: 0
+      zDepth: 0,
     });
-  }
+  },
 
 });
 

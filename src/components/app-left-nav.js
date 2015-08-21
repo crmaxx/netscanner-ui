@@ -1,52 +1,52 @@
-import React from "react";
-import Router from "react-router";
-import  { MenuItem, LeftNav, Styles } from "material-ui";
+import React from 'react';
+// import Router from 'react-router';
+import  { MenuItem, LeftNav, Styles } from 'material-ui';
 
-let { Colors, Spacing, Typography } = Styles;
+const { Colors, Spacing, Typography } = Styles;
 
-let menuItems = [
-    {
-      route: 'hosts',
-      text: 'Hosts'
-    },
-    {
-      route: 'jobs',
-      text: 'Jobs'
-    },
-    {
-      type: MenuItem.Types.SUBHEADER,
-      text: 'Actions'
-    },
-    {
-      route: 'import-hosts',
-      text: 'Import hosts'
-    },
-    {
-      route: 'check-credentials',
-      text: 'Check credentials'
-    },
-    {
-      route: 'execute-file',
-      text: 'Execute file'
-    },
-    {
-      route: 'execute-files',
-      text: 'Execute 32/64 file'
-    },
-    {
-      route: 'execute-mimikatz',
-      text: 'Mimikatzer'
-    },
-    {
-      route: 'collect-browser-history',
-      text: 'Collect browsers history',
-      disable: true
-    },
-    {
-      route: 'clear-logs',
-      text: 'Clear Logs and statuses'
-    }
-  ];
+const menuItems = [
+  {
+    route: 'hosts',
+    text: 'Hosts',
+  },
+  {
+    route: 'jobs',
+    text: 'Jobs',
+  },
+  {
+    type: MenuItem.Types.SUBHEADER,
+    text: 'Actions',
+  },
+  {
+    route: 'import-hosts',
+    text: 'Import hosts',
+  },
+  {
+    route: 'check-credentials',
+    text: 'Check credentials',
+  },
+  {
+    route: 'execute-file',
+    text: 'Execute file',
+  },
+  {
+    route: 'execute-files',
+    text: 'Execute 32/64 file',
+  },
+  {
+    route: 'execute-mimikatz',
+    text: 'Mimikatzer',
+  },
+  {
+    route: 'collect-browser-history',
+    text: 'Collect browsers history',
+    disable: true,
+  },
+  {
+    route: 'clear-logs',
+    text: 'Clear Logs and statuses',
+  },
+];
 
 
 class AppLeftNav extends React.Component {
@@ -62,7 +62,7 @@ class AppLeftNav extends React.Component {
   getStyles() {
     return {
       cursor: 'pointer',
-      //.mui-font-style-headline
+      // .mui-font-style-headline
       fontSize: '24px',
       color: Typography.textFullWhite,
       lineHeight: Spacing.desktopKeylineIncrement + 'px',
@@ -70,12 +70,12 @@ class AppLeftNav extends React.Component {
       backgroundColor: Colors.cyan500,
       paddingLeft: Spacing.desktopGutter,
       paddingTop: '0px',
-      marginBottom: '8px'
+      marginBottom: '8px',
     };
   }
 
   render() {
-    let header = (
+    const header = (
       <div style={this.getStyles()} onTouchTap={this._onHeaderClick}>
         Main Menu
       </div>
@@ -118,7 +118,7 @@ class AppLeftNav extends React.Component {
 }
 
 AppLeftNav.contextTypes = {
-  router: React.PropTypes.func
+  router: React.PropTypes.func,
 };
 
 module.exports = AppLeftNav;

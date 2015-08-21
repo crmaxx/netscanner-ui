@@ -1,22 +1,24 @@
-import React from "react";
-import { ClearFix, Mixins, Styles } from "material-ui";
+import React from 'react';
+import { ClearFix, Mixins, Styles } from 'material-ui';
 
-let { StylePropable, StyleResizable } = Mixins;
-let DesktopGutter = Styles.Spacing.desktopGutter;
+const { StylePropable, StyleResizable } = Mixins;
+const DesktopGutter = Styles.Spacing.desktopGutter;
 
-let FullWidthSection = React.createClass({
-  mixins: [StylePropable, StyleResizable],
-
+const FullWidthSection = React.createClass({
   propTypes: {
+    style: React.PropTypes.object,
     useContent: React.PropTypes.bool,
     contentType: React.PropTypes.string,
-    contentStyle: React.PropTypes.object
+    contentStyle: React.PropTypes.object,
+    children: React.PropTypes.object,
   },
+
+  mixins: [StylePropable, StyleResizable],
 
   getDefaultProps() {
     return {
       useContent: false,
-      contentType: 'div'
+      contentType: 'div',
     };
   },
 
@@ -24,33 +26,33 @@ let FullWidthSection = React.createClass({
     return  {
       root: {
         padding: DesktopGutter + 'px',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
       },
       content: {
-          maxWidth: '1200px',
-          margin: '0 auto'
+        maxWidth: '1200px',
+        margin: '0 auto',
       },
       rootWhenSmall: {
-          paddingTop: (DesktopGutter * 2) + 'px',
-          paddingBottom: (DesktopGutter * 2) + 'px'
+        paddingTop: (DesktopGutter * 2) + 'px',
+        paddingBottom: (DesktopGutter * 2) + 'px',
       },
       rootWhenLarge: {
-          paddingTop: (DesktopGutter * 3) + 'px',
-          paddingBottom: (DesktopGutter * 3) + 'px'
-      }
+        paddingTop: (DesktopGutter * 3) + 'px',
+        paddingBottom: (DesktopGutter * 3) + 'px',
+      },
     };
   },
 
   render() {
-    let {
+    const {
       style,
       useContent,
       contentType,
       contentStyle,
-      ...other
+      ...other,
     } = this.props;
 
-    let styles = this.getStyles();
+    const styles = this.getStyles();
 
     let content;
     if (useContent) {
@@ -74,7 +76,7 @@ let FullWidthSection = React.createClass({
         {content}
       </ClearFix>
     );
-  }
+  },
 });
 
 module.exports = FullWidthSection;

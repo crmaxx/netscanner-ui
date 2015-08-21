@@ -1,5 +1,5 @@
-import React from "react";
-import {Route, DefaultRoute} from "react-router";
+import React from 'react';
+import {Route, DefaultRoute} from 'react-router';
 
 // Here we define all our material-ui ReactComponents.
 import Application from './components/application';

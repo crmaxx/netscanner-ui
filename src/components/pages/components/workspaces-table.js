@@ -1,15 +1,15 @@
-import React from "react";
-import {Table} from "material-ui";
+import React from 'react';
+import {Table} from 'material-ui';
 
-// import Router from "react-router";
-// let Link = Router.Link;
+// import Router from 'react-router';
+// const Link = Router.Link;
 
-let WorkspacesTable = React.createClass({
-  mixins: [],
-
+const WorkspacesTable = React.createClass({
   propTypes: {
-    rowData: React.PropTypes.array
+    rowData: React.PropTypes.array,
   },
+
+  mixins: [],
 
   getInitialState() {
     return {
@@ -22,7 +22,7 @@ let WorkspacesTable = React.createClass({
       canSelectAll: true,
       deselectOnClickaway: true,
       height: '300px',
-      rowData: this.props.rowData
+      rowData: this.props.rowData,
     };
   },
 
@@ -33,32 +33,32 @@ let WorkspacesTable = React.createClass({
     const headerCols = {
       id: {
         content: 'ID',
-        tooltip: 'The ID'
+        tooltip: 'The ID',
       },
       name: {
         content: 'Name',
-        tooltip: 'The Name'
+        tooltip: 'The Name',
       },
       hosts: {
         content: 'Hosts',
-        tooltip: 'The Hosts'
+        tooltip: 'The Hosts',
       },
       sessions: {
         content: 'Sessions',
-        tooltip: 'The Sessions'
+        tooltip: 'The Sessions',
       },
       owner: {
         content: 'Owner',
-        tooltip: 'The Owner'
+        tooltip: 'The Owner',
       },
       updated: {
         content: 'Updated',
-        tooltip: 'The Updated'
+        tooltip: 'The Updated',
       },
       description: {
         content: 'Description',
-        tooltip: 'The Description'
-      }
+        tooltip: 'The Description',
+      },
     };
 
     return (
@@ -76,14 +76,14 @@ let WorkspacesTable = React.createClass({
         canSelectAll={this.state.canSelectAll}
         deselectOnClickaway={this.state.deselectOnClickaway}
         onRowSelection={this._onRowSelection} />
-    )
+    );
   },
 
   _onRowSelection() {
     return (
-      console.log("_onRowSelection")
+      console.log('_onRowSelection')
     );
-  }
+  },
 
 });
 
